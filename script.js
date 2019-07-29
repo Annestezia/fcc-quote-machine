@@ -1,20 +1,23 @@
   const newQuote = () => {
     const n = 30;
     const rand = num => {
-      return Math.floor(Math.random() * num);
-    };
-    const random = rand(n);
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=${n}`
-    )
-      .then(function(response) {
-        return response.json();
-      })
+            return Math.floor(Math.random() * num);
+          };
+    const decodeHtml = (html)=>{
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+          };
+    const random = rand(n);   
+    
+    fetch(`https://cors-anywhere.herokuapp.com/https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=${n}`)
+      .then(function(response) { return response.json();})
       .then(function(json) {
         var content = json[random].content.replace(/<[^>]*>?/gm, ""),
           title = json[random].title,
           linkBase = "https://twitter.com/intent/tweet?text=";
-        var tweetLink = `${linkBase}${content} -- ${title}`,
+        var quote =decodeHtml(content);
+        var tweetLink = `${linkBase}${quote} -- ${title}`,
           tweetEl = document.getElementsByClassName("twitter-share-button")[0];
         tweetEl.setAttribute("href", tweetLink);
         tweetEl.setAttribute("target", "_blank");
@@ -25,10 +28,6 @@
   };
 
   newQuote();  
-
-
-
-
 
 //oldschool  version =))
 
