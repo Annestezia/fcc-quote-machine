@@ -16,7 +16,7 @@
         var content = json[random].content.replace(/<[^>]*>?/gm, ""),
           title = json[random].title,
           linkBase = "https://twitter.com/intent/tweet?text=";
-        var quote =decodeHtml(content);
+        var quote = decodeHtml(content);
         var tweetLink = `${linkBase}${quote} -- ${title}`,
           tweetEl = document.getElementsByClassName("twitter-share-button")[0];
         tweetEl.setAttribute("href", tweetLink);
