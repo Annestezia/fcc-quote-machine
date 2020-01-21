@@ -1,35 +1,28 @@
-  const newQuote = () => {
-    const n = 30;
+const newQuote = () => {
+    const n = 50;
     const rand = num => {
             return Math.floor(Math.random() * num);
           };
-    const decodeHtml = (html)=>{
-            var txt = document.createElement("textarea");
-            txt.innerHTML = html;
-            return txt.value;
-          };
-    const random = rand(n);   
+    const random = rand(n); 
     
-    fetch(`https://cors-anywhere.herokuapp.com/https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=${n}`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://gist.githubusercontent.com/nasrulhazim/54b659e43b1035215cd0ba1d4577ee80/raw/e4b495e4f62a650fb0db0405c20fa4f48cb75a0e/quotes.json`)
       .then(function(response) { return response.json();})
       .then(function(json) {
-        var content = json[random].content.replace(/<[^>]*>?/gm, ""),
-          title = json[random].title,
-          linkBase = "https://twitter.com/intent/tweet?text=";
-        var quote = decodeHtml(content);
-        var tweetLink = `${linkBase}${quote} -- ${title}`,
-          tweetEl = document.getElementsByClassName("twitter-share-button")[0];
+      let {quote,author}=json.quotes[random];      
+      const linkBase = "https://twitter.com/intent/tweet?text=",      
+           tweetEl = document.getElementsByClassName("twitter-share-button")[0];
+      let tweetLink = `${linkBase}${quote} -- ${author}`;
         tweetEl.setAttribute("href", tweetLink);
         tweetEl.setAttribute("target", "_blank");
-        document.getElementById("quote").innerHTML = content;
-        document.getElementById("author").innerHTML = title;
+        document.getElementById("quote").innerHTML = quote;
+        document.getElementById("author").innerHTML = author;
       });
-    var newQuoteButton = document.getElementById("new");
+    const newQuoteButton = document.getElementById("new");
   };
 
-  newQuote();  
+  newQuote();   
 
-//oldschool  version =))
+//oldschool  version =)) 
 
 // var xhttp = new XMLHttpRequest();
 // xhttp.onreadystatechange = function() {

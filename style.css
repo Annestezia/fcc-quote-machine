@@ -21,6 +21,9 @@ body{
   justify-content: space-between;
   align-items: center;  
 }
+#quote{
+  line-height: 1.1;
+}
 
 @media (max-width: 600px){
   .wrap{
@@ -28,7 +31,7 @@ body{
   }
 }
 #quote p{
-  line-height: 1.3em;
+  line-height: 1.2;
   align-self: flex-start;  
 }
 #author{
