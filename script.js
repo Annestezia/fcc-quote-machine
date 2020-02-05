@@ -1,3 +1,7 @@
+window.addEventListener("load", () => {
+  const preload = document.querySelector(".preload");
+  preload.classList.add("preload-finish");
+});
 const newQuote = () => {
     const n = 50;
     const rand = num => {
@@ -11,7 +15,8 @@ const newQuote = () => {
       let {quote,author}=json.quotes[random];      
       const linkBase = "https://twitter.com/intent/tweet?text=",      
            tweetEl = document.getElementsByClassName("twitter-share-button")[0];
-      let tweetLink = `${linkBase}${quote} -- ${author}`;
+           let escaped=encodeURI(quote);
+      let tweetLink = `${linkBase}${escaped} -- ${author}`;
         tweetEl.setAttribute("href", tweetLink);
         tweetEl.setAttribute("target", "_blank");
         document.getElementById("quote").innerHTML = quote;
