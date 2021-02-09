@@ -1,29 +1,46 @@
 /* beautiful  purple #a6b */
 *{
-  font-family: 'Special Elite', cursive;
-/*  font-family: Tahoma, Verdana,'Gothic Century',sans-serif;*/
+  /* font-family: 'Special Elite', cursive; */
+ font-family: 'Gothic Century',Tahoma, Verdana,sans-serif;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 20px;
 }
 body{
-  width: 100vw;
-  height: 100vh;
-  background-image: radial-gradient(#fefefe, #a6b);
+ background-image: radial-gradient(#fefefe, #a6b); 
 }
 .wrap{
+  
   display: flex;
   flex-direction: column;
-  font-size: 1em;  
-  height: 100%;
-  width: 100vw; 
-  min-width: 260px;
-  padding: 20px;
-  box-sizing: border-box;
-  justify-content: space-between;
-  align-items: center;  
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  /* min-width: 260px; */
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 30px; 
 }
 #quote{
-  line-height: 1.1;
+  line-height: 1.4;
+}
+
+#quote-box{
+  display: flex;  
+  flex-direction:column;
+  justify-content:center;
+  /* min-height: 300px;
+  max-width: 500px;    */
+
+}
+.btns{
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 600px){
@@ -38,27 +55,26 @@ body{
 #author{
 margin: 30px 0;
 }
-#quote-box{
-  display: flex;  
-  flex-direction:column;
-  justify-content:center;
-  min-height: 300px;
-  max-width: 500px;   
-}
-#btns{
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  margin-bottom: 20px;
-}
 
-button{
+
+#new{
+  height: 40px;
+  display: inline-block;
   margin: 15px 0;
   padding: 10px;
-  max-width: 86px;
-  min-height: 46px;
+
+  /* max-width: 86px;
+  min-height: 46px; */
   text-transform: uppercase;
   font-family: 'Special Elite', cursive;
+}
+
+.twitter-share-button{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  margin-left: 20px;
 }
 
 /* preload */
