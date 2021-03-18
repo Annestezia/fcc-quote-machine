@@ -31,7 +31,7 @@ const newQuote = () => {
       const tweetLink = `${linkBase}${escaped} -- ${author}`;
         tweetEl.setAttribute("href", tweetLink);
         tweetEl.setAttribute("target", "_blank");
-        document.getElementById("quote").innerHTML = quote;
+        document.getElementById("text").innerHTML = quote;
         document.getElementById("author").innerHTML = author;
 
       }).catch((err) => {
